@@ -12,7 +12,7 @@ class Login extends React.Component{
             }
             sessionStorage.setItem('username',value.username);
             sessionStorage.setItem('password',value.password);
-            window.location.hash = 'home/'+ new Date().getTime();
+            window.location.hash = 'admin/'+ new Date().getTime();
         })
     }
     render(){
@@ -21,7 +21,7 @@ class Login extends React.Component{
             <div>
                 <QueueAnim type={['right', 'left']} key="p">
                     <header className="App-header" key="system">
-                        后台管理系统
+                        XX后台管理系统
                     </header>
                 </QueueAnim>
                 <Row key="Row0">

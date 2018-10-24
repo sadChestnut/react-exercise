@@ -1,101 +1,44 @@
 import React from 'react';
+import { Row, Col } from 'antd';
 import echarts from 'echarts/lib/echarts';
 import 'echarts/lib/component/tooltip';
 import 'echarts/lib/component/title';
 import 'echarts/lib/component/legend';
 import 'echarts/lib/chart/line';
 import ReactEcharts from 'echarts-for-react';
+import NavLeft from '../../components/NavLeft';
 export default class Home extends React.Component{
     getOption=()=>{
         let option={
             title: {
-                text: '堆叠区域图'
+                text: '季度销售走势图'
             },
             tooltip : {
-                trigger: 'axis',
-                axisPointer: {
-                    type: 'cross',
-                    label: {
-                        backgroundColor: '#6a7985'
-                    }
-                }
+                trigger: 'axis'
             },
-            legend: {
-                data:['邮件营销','联盟广告','视频广告','直接访问','搜索引擎']
+            xAxis: {
+                type: 'category',
+                data: ['第一季度', '第二季度', '第三季度', '第四季度']
             },
-            toolbox: {
-                feature: {
-                    saveAsImage: {}
-                }
+            yAxis: {
+                type: 'value'
             },
-            grid: {
-                left: '3%',
-                right: '4%',
-                bottom: '3%',
-                containLabel: true
-            },
-            xAxis : [
-                {
-                    type : 'category',
-                    boundaryGap : false,
-                    data : ['周一','周二','周三','周四','周五','周六','周日']
-                }
-            ],
-            yAxis : [
-                {
-                    type : 'value'
-                }
-            ],
-            series : [
-                {
-                    name:'邮件营销',
-                    type:'line',
-                    stack: '总量',
-                    areaStyle: {},
-                    data:[120, 132, 101, 134, 90, 230, 210]
-                },
-                {
-                    name:'联盟广告',
-                    type:'line',
-                    stack: '总量',
-                    areaStyle: {},
-                    data:[220, 182, 191, 234, 290, 330, 310]
-                },
-                {
-                    name:'视频广告',
-                    type:'line',
-                    stack: '总量',
-                    areaStyle: {},
-                    data:[150, 232, 201, 154, 190, 330, 410]
-                },
-                {
-                    name:'直接访问',
-                    type:'line',
-                    stack: '总量',
-                    areaStyle: {normal: {}},
-                    data:[320, 332, 301, 334, 390, 330, 320]
-                },
-                {
-                    name:'搜索引擎',
-                    type:'line',
-                    stack: '总量',
-                    label: {
-                        normal: {
-                            show: true,
-                            position: 'top'
-                        }
-                    },
-                    areaStyle: {normal: {}},
-                    data:[820, 932, 901, 934, 1290, 1330, 1320]
-                }
-            ]
+            series: [{
+                data: [820,934,1290,760],
+                type: 'line'
+            }]
         }
         return option;
     }
     render(){
         return(
             <div>
-                <ReactEcharts option={this.getOption()} style={{height: '500px', width: '60%'}}/>
+                <Row>
+                    <Col span={4}><NavLeft/></Col>
+                    <Col span={10}>
+                        <ReactEcharts option={this.getOption()} style={{height: '500px'}}/>
+                    </Col>
+                </Row>
             </div>
         )
     }
