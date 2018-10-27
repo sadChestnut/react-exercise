@@ -1,35 +1,25 @@
 const menuList = [
     {
         title:'首页',
-        key:'/home'
+        key:'/admin/home'
     },
     {
-        title:'书籍管理',
-        key:'/book',
+        title:'表格管理',
+        key:'/admin/table',
         children:[
             {
-                title: '书籍详情',
-                key: '/book/detail',
+                title: '表格详情',
+                key: '/admin/table/detail',
             },
             {
-                title: '书籍订单',
-                key: '/book/order',
+                title: '可修改的表格',
+                key: '/admin/table/modify',
             }
         ]
     },
     {
-        title:'员工管理',
-        key:'/employee',
-        children:[
-            {
-                title: '员工详情',
-                key: '/employee/detail',
-            },
-            {
-                title: '员工权限',
-                key: '/employee/right',
-            }
-        ]
+        title:'富文本框',
+        key:'/admin/editor',
     }
 ]
 

@@ -12,19 +12,20 @@ class Login extends React.Component{
             }
             sessionStorage.setItem('username',value.username);
             sessionStorage.setItem('password',value.password);
-            window.location.hash = 'admin/'+ new Date().getTime();
+            window.location.hash = 'admin';
+           // window.location.hash = 'admin/'+ new Date().getTime();
         })
     }
     render(){
         const { getFieldDecorator } = this.props.form;
         return(
             <div>
-                <QueueAnim type={['right', 'left']} key="p">
-                    <header className="App-header" key="system">
+                <QueueAnim type={['right', 'left']} key="p" className="title-style">
+                    <header  key="system">
                         XX后台管理系统
                     </header>
                 </QueueAnim>
-                <Row key="Row0">
+                <Row key="Row0" className="login-style">
                     <Col span={9}/>
                     <Col span={6}>
                         <Form layout="horizontal" onSubmit={this.handleSubmit}>
